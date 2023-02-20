@@ -1,5 +1,9 @@
 package fr.aelion.models;
 
+/**
+ * @name Student
+ * @version 1.0.0
+ */
 public class Student {
     public String lasName;
     public String firstName;
