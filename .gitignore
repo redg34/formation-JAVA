@@ -3,3 +3,5 @@
 
 # Binaries Java
 target
+
+*.iml
