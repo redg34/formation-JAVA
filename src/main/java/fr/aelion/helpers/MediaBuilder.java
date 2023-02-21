@@ -3,6 +3,8 @@ package fr.aelion.helpers;
 import fr.aelion.helpers.interfaces.Builder;
 import fr.aelion.models.course.*;
 
+import java.util.Optional;
+
 
 public class MediaBuilder implements Builder<Media> {
 
@@ -39,7 +41,7 @@ public class MediaBuilder implements Builder<Media> {
 
 
     @Override
-    public Media build() {
+    public Optional<Media> build() {
         Media media;
 
 
@@ -65,6 +67,6 @@ public class MediaBuilder implements Builder<Media> {
         media.setDuration(this.duration);
         media.setAuthor(this.author);
 
-        return media;
+        return Optional.of(media);
     }
 }
