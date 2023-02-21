@@ -41,13 +41,15 @@ public class MediaBuilder implements Builder<Media> {
 
 
     @Override
-    public Optional<Media> build() {
+    public Media build() throws Exception {
 
         // Hey Buddy, what if no title or duration ?
         if (this.title == null || this.duration == null) {
-            return Optional.empty();
+           throw new Exception("title or duration is missing, unableto create Media");
         }
-
+if (this.mediaType == null) {
+    throw  new Exception("media type is null , cannot create Media");
+}
         Media media;
 
         switch (this.mediaType.toUpperCase()) {
@@ -70,6 +72,6 @@ public class MediaBuilder implements Builder<Media> {
         media.setDuration(this.duration);
         media.setAuthor(this.author);
 
-        return Optional.of(media);
+        return media;
     }
 }
