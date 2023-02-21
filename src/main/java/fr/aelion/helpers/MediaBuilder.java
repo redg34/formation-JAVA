@@ -42,26 +42,29 @@ public class MediaBuilder implements Builder<Media> {
 
     @Override
     public Optional<Media> build() {
+
+        // Hey Buddy, what if no title or duration ?
+        if (this.title == null || this.duration == null) {
+            return Optional.empty();
+        }
+
         Media media;
 
-
-        switch  (this.mediaType.toUpperCase()) {
-            case  "VIDEO":
+        switch (this.mediaType.toUpperCase()) {
+            case "VIDEO":
                 media = new Video();
                 break;
-
-            case  "DOCUMENT":
+            case "DOCUMENT":
                 media = new Document();
                 break;
-
-            case  "SLIDE":
+            case "SLIDE":
                 media = new Slide();
                 break;
             default:
                 media = new Video();
         }
 
-        // Next ... Fills atribute
+        // Next... fill attributes
         media.setTitle(this.title);
         media.setSummary(this.summary);
         media.setDuration(this.duration);
