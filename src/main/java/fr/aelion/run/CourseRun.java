@@ -1,9 +1,8 @@
 package fr.aelion.run;
 
-import fr.aelion.models.course.Document;
-import fr.aelion.models.course.Media;
-import fr.aelion.models.course.Slide;
-import fr.aelion.models.course.Video;
+import fr.aelion.helpers.MediaBuilder;
+import fr.aelion.helpers.interfaces.Builder;
+import fr.aelion.models.course.*;
 import fr.aelion.repositories.course.Course;
 import fr.aelion.services.course.DisplayCourse;
 
@@ -21,19 +20,62 @@ public class CourseRun {
     }
 
     private void  makeCourse( ) {
-        Media video = new Video();
-        video.setTitle("create table");
+        MediaBuilder videoBuilder = new  MediaBuilder();
+        videoBuilder .setMediaType("video");
+        videoBuilder
+                .title("Create table")
+                .summary("Creer une table")
+                .duration(5.35F)
+                .author(new Author());
 
-        Media slide = new Slide();
-        slide.setTitle("after table");
+        MediaBuilder slideBuilder = new MediaBuilder();
+        slideBuilder.setMediaType("slide");
+        slideBuilder
+                .title("Alter table")
+                .summary("Modifier une table")
+                .duration(3.30F)
+                .author(new Author());
 
-        Media document = new Document();
-        document.setTitle("drop table");
+        MediaBuilder docBuilder = new MediaBuilder();
+        docBuilder.setMediaType("Document");
+        docBuilder
+                .title("Drop table")
+                .summary("Supprimer une table")
+                .duration(1.10F)
+                .author(new Author());
+MediaBuilder badBuilder = new MediaBuilder();
+badBuilder
+        .title("Not in the list")
+        .duration(0.10F);
 
-        this.course.addMedia(video);
-        this.course.addMedia(slide);
-        this.course.addMedia(document);
+
+        try {
+                this.course.addMedia(videoBuilder.build());
+            } catch (Exception e){
+                System.out.println("unablet o add the video media");
+            }
 
 
+        try {
+            this.course.addMedia(slideBuilder.build());
+        } catch (Exception e){
+            System.out.println("unable to add the slide media");
+        }
+
+
+        try {
+            this.course.addMedia(docBuilder.build());
+        } catch (Exception e){
+            System.out.println("unable to add doc media");
+        }
+
+
+        try{
+            this.course.addMedia(badBuilder.build());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+
+        }
     }
-}
