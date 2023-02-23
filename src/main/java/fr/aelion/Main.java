@@ -16,7 +16,9 @@ public class Main {
     }
 */
     public  static  void  main(String[] args) {
-        CourseRun courseRun = new CourseRun();
-        courseRun.run();
+      //  CourseRun courseRun = new CourseRun();
+       // courseRun.run();
+        StudentRun studentRun = new StudentRun();
+        StudentRun.run();
     }
 }

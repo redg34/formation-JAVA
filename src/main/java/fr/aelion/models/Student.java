@@ -1,5 +1,8 @@
 package fr.aelion.models;
 
+import fr.aelion.helpers.strategies.student.FirstanameLastNameStrategy;
+import fr.aelion.helpers.strategies.student.IHelloStrategy;
+
 public class Student extends  Person {
 
 
@@ -7,6 +10,7 @@ public class Student extends  Person {
     private String password;
 
     private Boolean isLoggedIn = false;
+    private IHelloStrategy strategy = new FirstanameLastNameStrategy();
 
     public Student(String lastName, String firstName, String email) {
         this.lastName = lastName;
@@ -54,5 +58,11 @@ public class Student extends  Person {
 
     public void isLoggedIn(boolean isLoggedIn) {
         this.isLoggedIn = isLoggedIn;
+    }
+    public  void setStrategy(IHelloStrategy strategy) {
+        this.strategy = strategy;
+}
+    public String toString() {
+        return this.strategy.greetings(this);
     }
 }

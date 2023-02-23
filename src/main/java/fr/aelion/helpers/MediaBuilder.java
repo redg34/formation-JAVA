@@ -6,8 +6,6 @@ import fr.aelion.helpers.factory.MediaFactory;
 import fr.aelion.helpers.interfaces.Builder;
 import fr.aelion.models.course.*;
 
-import java.util.Optional;
-
 
 public class MediaBuilder implements Builder<Media> {
 
@@ -20,6 +18,7 @@ public class MediaBuilder implements Builder<Media> {
     private Author author;
 
     private  String mediaType;
+
 
     public void setMediaType(String mediaType) {
     this.mediaType = mediaType;
@@ -71,6 +70,6 @@ if (this.mediaType == null) {
         media.setDuration(this.duration);
         media.setAuthor(this.author);
 
-        return media;
+        return media ;
     }
 }
