@@ -1,7 +1,7 @@
 package fr.aelion.models;
 
 public class Person {
-    protected String getLastName() {
+    public String getLastName() {
         return lastName;
     }
 
@@ -9,7 +9,7 @@ public class Person {
         this.lastName = lastName;
     }
 
-    protected String getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
@@ -17,7 +17,7 @@ public class Person {
         this.firstName = firstName;
     }
 
-    protected String getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
@@ -25,7 +25,7 @@ public class Person {
         this.phoneNumber = phoneNumber;
     }
 
-    protected String getEmail() {
+    public String getEmail() {
         return email;
     }
 
@@ -33,10 +33,10 @@ public class Person {
         this.email = email;
     }
 
-    private String lastName;
-    private String firstName;
-    private String phoneNumber;
-    private String email;
+    protected String lastName;
+    protected String firstName;
+    protected String phoneNumber;
+    protected String email;
 
     public Person() {}
     public Person(String lastName, String email) {

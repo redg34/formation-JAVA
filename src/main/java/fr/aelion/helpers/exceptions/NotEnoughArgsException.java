@@ -1,7 +1,7 @@
 package fr.aelion.helpers.exceptions;
 
-public class NoEnoughArgsException extends Exception {
-    public  NoEnoughArgsException(){
+public class NotEnoughArgsException extends Exception {
+    public NotEnoughArgsException(){
         super("title of duration was not provided");
     }
 }
